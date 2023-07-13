@@ -7,7 +7,6 @@ const saltRounds = 10;
 
 export async function getAllUsers(req, res){
     try{
-        console.log("here")
         const usersDB = await UserModel.find()
         if (!usersDB) throw new Error("no errors found on FUNCTION getAllUsers IN FILE userCtrl")
         
@@ -48,7 +47,6 @@ export async function getUserByID(req, res){
 
 export async function postUserLogin(req, res){
     try{
-        console.log("here")
         const { email, password } = req.body;
         console.log(req.body)
 
@@ -80,7 +78,6 @@ export async function postUserLogin(req, res){
 
 export async function postUserRegister(req, res){
     try{
-        console.log("received: ", req.body)
         const { email, password, name } = req.body;
         if (!email || !password || !name ) throw new Error("email or passwork missing")
         const checkUserDB = await UserModel.findOne({email})
